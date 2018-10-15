@@ -1,0 +1,10 @@
+Name=Lliurex Backup Manager
+Name[es]=Gestor de copias de respaldo de LliureX
+Name[ca_ES@valencia]=Gestor de còpies de seguretat de LliureX
+Comment=Lliurex Backup Manager
+Comment[es]=Gestor de copias de respaldo de los servicios del servidor LliureX en el modelo de aula
+Comment[ca_ES@valencia]=Fa còpies de seguretat dels servicis del servidor d'aula LliureX
+Icon=lliurex-backup
+Category=system
+ScriptPath=lliurex-backup.zmd
+Groups=adm;admins

@@ -1,0 +1,406 @@
+#!/usr/bin/env python
+import gi
+gi.require_version('Gtk','3.0')
+from gi.repository import Gtk, Gdk, GObject,GLib
+import os
+import xmlrpclib
+import sys
+import signal
+import time
+import threading
+
+signal.signal(signal.SIGINT, signal.SIG_DFL)
+
+import gettext
+_=gettext.gettext
+gettext.textdomain('lliurex-backup')
+
+
+class LliurexBackup:
+	
+	def __init__(self):
+		
+		self.services=[(_("LliureX Server basic services"),"Hostname, Network, DNSmasq,\nProxy, LDAP, Samba",True,-1,"ServerBackupManager"),
+		("Apache",_("HTTP Server"),False,0,"ApacheManager"),
+		("CUPS",_("Printing service"),False,0,"CupsManager"),
+		("MySQL",_("MySQL Database"),False,0,"MysqlManager"),
+		("NFS",_("NFS configuration"),False,0,"NfsManager"),
+		("Moodle",_("Moodle"),False,0,"MoodleManager"),
+		("PMB",_("Pmb"),False,0,"PmbManager")]
+		
+		#self.n4d_key=self.get_n4d_key()
+		self.n4d=xmlrpclib.ServerProxy("https://localhost:9779",allow_none=True)
+
+		self.pulsating=False
+		self.backup_thread=threading.Thread()
+		self.backup_ret=None
+		self.restore_thread=threading.Thread()
+		self.restore_thread=None
+		self.last_action=-1
+		
+		self.user=None
+		self.password=None
+		
+		
+	#def init
+	
+	def get_n4d_key(self):
+		
+		try:
+			f=open("/etc/n4d/key")
+			key=f.readline().strip("\n")
+			f.close()
+			return key
+		except:
+			return None
+		
+	#def get_n4d_key
+		
+	
+	def start_gui(self):
+		
+		builder=Gtk.Builder()
+		builder.set_translation_domain("lliurex-backup")
+		if os.path.exists("install-files/usr/share/lliurex-backup/rsrc/lliurex-backup.glade"):
+			builder.add_from_file("install-files/usr/share/lliurex-backup/rsrc/lliurex-backup.glade")
+		else:
+			builder.add_from_file("/usr/share/lliurex-backup/rsrc/lliurex-backup.glade")
+		
+		self.window=builder.get_object("window1")
+		self.window.connect("destroy",self.destroy)
+		
+		self.add_button=builder.get_object("add_button")
+		self.add_button.connect("clicked",self.add_clicked)
+	
+		self.remove_button=builder.get_object("remove_button")
+		self.remove_button.connect("clicked",self.remove_clicked)
+		
+		self.backup_button=builder.get_object("backup_button")
+		self.backup_button.connect("clicked",self.backup_clicked)
+		
+		self.restore_button=builder.get_object("restore_button")
+		self.restore_button.connect("clicked",self.restore_clicked)
+		
+		self.backup_file=builder.get_object("backupfile_chooserbutton")
+		self.backup_dir=builder.get_object("backup_dir_chooserbutton")
+		
+		self.restore_file=builder.get_object("restorefile_chooserbutton")
+		
+		self.treeview=builder.get_object("backup_treeview")
+		self.selection=self.treeview.get_selection()
+		self.selection.connect("changed",self.service_selected)
+		self.build_treeview()
+		
+		self.msg_label=builder.get_object("msg_label")
+		self.msg_folder_label=builder.get_object("msg_folder_label")
+		
+		
+		
+		self.add_folder_window=builder.get_object("window2")
+		self.add_folder_button=builder.get_object("add_folder_button")
+		self.add_folder_button.connect("clicked",self.add_folder_clicked)
+		self.add_folder_window.connect("delete-event",self.on_delete_event)
+		
+		self.cancel_folder_button=builder.get_object("cancel_folder_button")
+		self.cancel_folder_button.connect("clicked",self.cancel_folder_clicked)
+		self.add_folder_window.hide()
+		
+		self.progress_window=builder.get_object("window3")
+		self.progress_label=builder.get_object("progress_label")
+		self.progress_window.connect("delete-event",self.on_delete_event)
+		self.progress_bar=builder.get_object("progressbar")
+		
+		self.login_window=builder.get_object("window4")
+
+		self.login_window.connect("destroy",self.destroy)
+		self.accept_login_button=builder.get_object("accept_login_button")
+		self.accept_login_button.connect("clicked",self.validate_user)
+		self.cancel_login_button=builder.get_object("cancel_login_button")
+		self.cancel_login_button.connect("clicked",self.destroy)
+		self.login_label=builder.get_object("login_label")
+		
+		self.user_entry=builder.get_object("user_entry")
+		self.user_entry.set_text(os.environ["USER"])
+		self.user_entry.set_sensitive(False)
+		self.pass_entry=builder.get_object("password_entry")
+		self.pass_entry.connect("activate",self.validate_user)
+		
+		self.login_window.show_all()
+		
+		Gtk.main()
+		
+	#def start_gui
+	
+	def validate_user(self,widget):
+		
+		self.user=self.user_entry.get_text()
+		self.password=self.pass_entry.get_text()
+		self.n4d_key=(self.user,self.password)
+		
+		if self.n4d.validate_user(self.user,self.password)[0]:
+			self.login_window.hide()
+			self.window.show_all()
+		else:
+			self.login_label.set_markup("<span foreground='red'>%s</span>"%(_("Authentication error")))
+		
+	#def validate_user
+	
+	def on_delete_event(self,widget,data):
+		
+		return True
+		
+	#def on_delete_event
+	
+	def build_treeview(self):
+		
+		self.backup_store=Gtk.ListStore(str,str,bool,int,str)
+		self.treeview.set_model(self.backup_store)
+		
+		column=Gtk.TreeViewColumn(_("Service"))
+		renderer=Gtk.CellRendererText()
+		column.pack_start(renderer,True)
+		column.add_attribute(renderer,"text",0)
+		self.treeview.append_column(column)
+		
+		column=Gtk.TreeViewColumn(_("Description"))
+		renderer=Gtk.CellRendererText()
+		column.pack_start(renderer,True)
+		column.add_attribute(renderer,"text",1)
+		self.treeview.append_column(column)
+		
+		column=Gtk.TreeViewColumn(_("Backup"))
+		renderer=Gtk.CellRendererToggle()
+		renderer.connect("toggled",self.service_toggled)
+		column.pack_start(renderer,True)
+		column.add_attribute(renderer,"active",2)
+		self.treeview.append_column(column)
+		
+		for service in self.services:
+			self.backup_store.append(service)
+		
+		
+	#def set_values
+	
+	def service_selected(self,selection):
+		
+		model,treeiter=selection.get_selected()
+		
+		if treeiter!=None:
+			pass
+			#print model[treeiter][0],model[treeiter][1]
+		
+	#def service_selected
+	
+	def service_toggled(self,widget,path):
+		
+		self.backup_store[path][2]=not self.backup_store[path][2]
+		
+	#def service-toggled
+	
+	def add_clicked(self,widget):
+		
+		self.msg_label.set_markup("")
+		self.add_folder_window.show_all()
+		
+	#def add_clicked
+	
+	def add_folder_clicked(self,widget):
+		
+		if self.backup_dir.get_filename()!=None:
+			for item in self.backup_store:
+				if self.backup_dir.get_filename().startswith(item[0]):
+					self.msg_folder_label.set_markup("<span foreground='red'>"+_("%s or its parent path is already in the backup list")%(self.backup_dir.get_filename())+"</span>")
+					return
+			
+			self.backup_store.append([self.backup_dir.get_filename(),_("Custom directory"),True,1,"NetFoldersManager"])		
+			self.msg_folder_label.set_markup("")
+			self.add_folder_window.hide()
+		
+	#def add_folder_clicked
+	
+	def cancel_folder_clicked(self,widget):
+		
+		self.add_folder_window.hide()
+		
+	#def cancel_folder_button
+	
+	
+	def remove_clicked(self,widget):
+		
+		self.msg_label.set_markup("")
+		selection=self.treeview.get_selection()
+		if selection!=None:
+			model,treeiter=selection.get_selected()
+			if treeiter!=None:
+				if model[treeiter][3]==1:
+					self.backup_store.remove(treeiter)
+					self.msg_label.set_markup("")
+				else:
+					self.msg_label.set_markup("<span foreground='red'>%s</span>"%_("Select a 'Custom directory' entry from the data table to remove it"))
+		
+	#def remove-clicked
+
+	
+	def backup_clicked(self,widget):
+		
+		path=self.backup_file.get_filename()
+		if path==None:
+			self.msg_label.set_markup("<span foreground='red'>%s</span>"%_("Select a backup file path first"))
+			return
+		
+		folder_list=[]
+		service_list=[]
+		use_basics=False
+		for item in self.backup_store:
+			if item[2]:
+				class_name=item[4]
+				if class_name=="ServerBackupManager":
+					use_basics=True
+				else:
+					service_list.append(class_name)
+				if item[3]!=1:
+					print "n4d.backup %s"%class_name
+					
+					#print self.n4d.backup(self.n4d_key,class_name,path)
+				else:
+					folder_list.append(item[0])
+				
+		if use_basics:
+			try:
+				server_basics=self.n4d.get_basic_services_list("","ServerBackupManager")
+			except:
+				server_basics=[]
+			for service in service_list:
+				if service not in server_basics:
+					server_basics.append(service)
+					
+			service_list=server_basics
+				
+		if len(folder_list)>0:
+			if "NetFoldersManager" not in service_list:
+				service_list.append("NetFoldersManager")
+		else:
+			folder_list=None
+		
+		self.last_action=0
+		self.pulsating=True
+		GLib.timeout_add(250,self.pulse_bar)
+		self.progress_label.set_text(_("Creating backup file..."))
+		self.progress_window.show()
+		self.backup_thread=threading.Thread(target=self.backup,args=(path,service_list,folder_list))
+		self.backup_thread.start()
+		
+		
+	#def remove-clicked
+	
+	def backup(self,path,services,folders):
+
+		try:
+			self.last_action=0
+			self.backup_ret=self.n4d.backup(self.n4d_key,"ServerBackupManager",path,services,folders)
+			self.backup_ret=[True,self.backup_ret[2]]
+		
+		except Exception as e:
+			self.backup_ret=[False,str(e)]
+			
+		#self.pulsating=False
+		
+		return False
+		
+	#def backup
+	
+	
+	def restore(self,path):
+
+		try:
+			self.last_action=1
+			self.restore_ret=self.n4d.restore(self.n4d_key,"ServerBackupManager",path)
+
+		except Exception as e:
+			self.restore_ret=[False,str(e)]
+			
+		#self.pulsating=False
+		return False
+		
+	#def backup	
+	
+	
+	def pulse_bar(self):
+		
+		
+		self.progress_bar.pulse()
+		#print "pulsating"
+		
+		if self.last_action==0:
+			
+			if self.backup_thread.is_alive():
+				return True
+			
+			elif self.backup_ret!=None:
+				if self.backup_ret[0]:
+					self.msg_label.set_markup("<b>"+_("Backup file created")+":</b> %s"%self.backup_ret[1])
+				else:
+					self.msg_label.set_markup("<span foreground='red'>"+_("Creation of backup file failed:")+"\n%s</span>"%( self.backup_ret[1] ))
+						
+				self.progress_window.hide()
+				self.pulsating=False
+				return False
+						
+		if self.last_action==1:
+				
+			if self.restore_thread.is_alive():
+					
+				return True
+				
+			elif self.restore_ret!=None:
+						
+				if self.restore_ret[0]:
+					self.msg_label.set_markup(_("<b>Restoration complete</b>"))
+				else:
+					self.msg_label.set_markup("<span foreground='red'>"+_("Restoration failed:")+"\n%s</span>"%( self.restore_ret[1] ))
+				
+				self.progress_window.hide()
+				self.pulsating=False
+				return False
+			
+		return self.pulsating
+		
+	#def pulse_bar
+	
+	def restore_clicked(self,widget):
+		
+		self.msg_label.set_markup("")
+		path=self.restore_file.get_filename()
+		if path==None:
+			self.msg_label.set_markup("<span foreground='red'>%s</span>"%_("Select a restoration file first"))
+			return
+			
+		self.last_action=1
+		self.pulsating=True
+		GLib.timeout_add(250,self.pulse_bar)
+		self.progress_label.set_text(_("Restoring services..."))
+		self.progress_window.show()
+		self.restore_thread=threading.Thread(target=self.restore,args=(path,))
+		self.restore_thread.start()
+		
+		
+	#def remove-clicked
+	
+	
+	
+	def destroy(self,widget):
+		#sys.exit(0)
+		Gtk.main_quit()
+		
+	#def destroy
+	
+	
+#class LliurexBackup
+
+
+
+if __name__=="__main__":
+	
+	
+	lb=LliurexBackup()
+	lb.start_gui()

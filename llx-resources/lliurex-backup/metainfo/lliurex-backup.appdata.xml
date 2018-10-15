@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='utf-8'?>
+<component type="desktop-application">
+<id>lliurex-backup</id>
+<metadata_license>CC0-1.0</metadata_license>
+<name>Lliurex Backup Manager</name>
+<name xml:lang="es">Gestor de copias de respaldo de LliureX</name>
+<name xml:lang="ca_ES.UTF-8@valencia">Gestor de còpies de seguretat del LliureX</name>
+<name xml:lang="ca_ES@valencia">Gestor de còpies de seguretat del LliureX</name>
+<name xml:lang="ca">Gestor de còpies de seguretat del LliureX</name>
+<summary>Lliurex Backup Manager</summary>
+<summary xml:lang="es">Gestor de copias de respaldo de los servicios del servidor LliureX en el modelo de aula</summary>
+<summary xml:lang="ca_ES.UTF-8@valencia">Fa còpies de seguretat dels serveis del servidor d'aula Lliurex</summary>
+<summary xml:lang="ca_ES@valencia">Fa còpies de seguretat dels serveis del servidor d'aula Lliurex</summary>
+<summary xml:lang="ca">Fa còpies de seguretat dels serveis del servidor d'aula Lliurex</summary>
+<description>
+<p>Lliurex Backup Manager</p>
+<p xml:lang="es">Gestor de copias de respaldo de los servicios del servidor LliureX en el modelo de aula</p>
+<p xml:lang="ca_ES.UTF-8@valencia">Fa còpies de seguretat dels serveis del servidor d'aula Lliurex</p>
+<p xml:lang="ca_ES@valencia">Fa còpies de seguretat dels serveis del servidor d'aula Lliurex</p>
+<p xml:lang="ca">Fa còpies de seguretat dels serveis del servidor d'aula Lliurex</p>
+</description>
+<categories>
+<category>Administration</category>
+<category>LliureX</category>
+
+</categories>
+<icon type="stock">lliurex-backup</icon>
+<provides><binary>lliurex-backup</binary></provides>
+<keywords>
+<keyword>Lliurex</keyword>
+<keyword>Backup</keyword>
+<keyword>Manager</keyword>
+<keyword>Gestor</keyword>
+<keyword>copias</keyword>
+<keyword>respaldo</keyword>
+<keyword>LliureX</keyword>
+<keyword>còpies</keyword>
+<keyword>seguretat</keyword>
+
+</keywords>
+<developer_name>Lliurex Team</developer_name>
+</component>
