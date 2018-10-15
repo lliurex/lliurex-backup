@@ -1,0 +1,66 @@
+lliurex-backup (0.9) xenial; urgency=medium
+
+  * Removed deprecated locale
+
+ -- Juanma Navarro Mañez <juanma1980@gmail.com>  Thu, 22 Jun 2017 09:22:05 +0200
+
+lliurex-backup (0.8) xenial; urgency=medium
+
+  * Added metainfo
+
+ -- Juanma Navarro Mañez <juanma1980@gmail.com>  Thu, 11 May 2017 12:43:36 +0200
+
+lliurex-backup (0.7+lliurex4) xenial; urgency=medium
+
+  * Add desktop file
+
+ -- Juan Ramon Pelegrina <juapesai@hotmail.com>  Wed, 08 Feb 2017 17:19:24 +0100
+
+lliurex-backup (0.7+lliurex3) xenial; urgency=medium
+
+  * Added NFS config backup
+
+ -- Juanma Navarro Mañez <juanma1980@gmail.com>  Mon, 25 Jul 2016 14:00:40 +0200
+
+lliurex-backup (0.7+lliurex2) xenial; urgency=medium
+
+  * Added dependencies for n4d-backup-manager
+
+ -- Juanma Navarro Mañez <juanma1980@gmail.com>  Thu, 21 Jul 2016 09:07:20 +0200
+
+lliurex-backup (0.7+lliurex1) xenial; urgency=medium
+
+  * Added Pmb and Moodle backup
+
+ -- Juanma Navarro Mañez <juanma1980@gmail.com>  Fri, 15 Jul 2016 09:50:19 +0200
+
+lliurex-backup (0.7) xenial; urgency=medium
+
+  * First release to xenial
+  * Fixed require version of Gtk (lliurex-backup)
+
+ -- Juan Ramon Pelegrina <juapesai@hotmail.com>  Mon, 15 Feb 2016 13:42:21 +0100
+
+lliurex-backup (0.4) trusty; urgency=high
+
+  * Added app translation
+
+ -- Angel Berlanas Vicente <angel.berlanas@gmail.com>  Mon, 25 May 2015 13:05:35 +0200
+
+lliurex-backup (0.3) trusty; urgency=medium
+
+  * Slightly changed GUI look to make it less confusing
+
+ -- Hector Garcia Huerta <hectorgh@gmail.com>  Wed, 15 Apr 2015 12:52:00 +0200
+
+lliurex-backup (0.2) trusty; urgency=medium
+
+  * First trusty release
+
+ -- Hector Garcia Huerta <hectorgh@gmail.com>  Wed, 15 Apr 2015 09:47:28 +0200
+
+lliurex-backup (0.1) precise; urgency=high
+
+  * Initial release. 
+
+ -- Hector Garcia Huerta <hectorgh@gmail.com>  Tue, 30 Sep 2014 13:52:08 +0200
