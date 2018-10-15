@@ -10,7 +10,7 @@
 #export DH_VERBOSE=1
 
 %:
-	dh $@ --with llxsrc,llxdev
+	dh $@ --with llxsrc,zero,i18n
 
 
 
