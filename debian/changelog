@@ -1,3 +1,9 @@
+lliurex-backup (0.19) bionic; urgency=medium
+
+  * Initial release for bionic
+
+ -- Juan Ramon Pelegrina <juapesai@hotmail.com>  Mon, 15 Oct 2018 12:01:37 +0200
+
 lliurex-backup (0.9) xenial; urgency=medium
 
   * Removed deprecated locale
