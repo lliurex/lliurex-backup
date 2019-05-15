@@ -1,0 +1,257 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-05-15 08:46+0200\n"
+"PO-Revision-Date: 2019-05-15 12:04+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.0.6\n"
+
+#: lliurex-backup/python3-lliurexbackup/MainWindow.py:29
+msgid "LliureX Server basic services"
+msgstr "Servicios basicos de LliureX"
+
+#: lliurex-backup/python3-lliurexbackup/MainWindow.py:30
+msgid "HTTP Server"
+msgstr "Servidor HTTP"
+
+#: lliurex-backup/python3-lliurexbackup/MainWindow.py:31
+msgid "Printing service"
+msgstr "Servicio de impresión"
+
+#: lliurex-backup/python3-lliurexbackup/MainWindow.py:32
+msgid "MySQL Database"
+msgstr "Base de datos MYSQL"
+
+#: lliurex-backup/python3-lliurexbackup/MainWindow.py:33
+msgid "NFS configuration"
+msgstr "Configuración de NFS"
+
+#: lliurex-backup/python3-lliurexbackup/MainWindow.py:34
+msgid "Moodle"
+msgstr ""
+
+#: lliurex-backup/python3-lliurexbackup/MainWindow.py:35
+msgid "Pmb"
+msgstr ""
+
+#: lliurex-backup/python3-lliurexbackup/MainWindow.py:237
+#, python-format
+msgid "%s or its parent path is already in the backup list"
+msgstr "%s o su ruta padre ya esta en el listado de la copia de seguridad"
+
+#: lliurex-backup/python3-lliurexbackup/MainWindow.py:239
+msgid "The selected folder has been edited successfully"
+msgstr "La carpeta seleccionada ha sido editada correctamente"
+
+#: lliurex-backup/python3-lliurexbackup/MainWindow.py:241
+msgid "The selected folder has been added to the backup list"
+msgstr "La carpeta seleccionada ha sido añadida a la lista de backup"
+
+#: lliurex-backup/python3-lliurexbackup/MainWindow.py:243
+#, python-format
+msgid ""
+"Backup file created successfully: \n"
+"%s"
+msgstr ""
+"Copia de seguridad creada correctamente:\n"
+"%s"
+
+#: lliurex-backup/python3-lliurexbackup/MainWindow.py:245
+#, python-format
+msgid ""
+"Creation of backup file failed: \n"
+"%s"
+msgstr ""
+"La creación de la copia de seguridad ha fallado:\n"
+"%s"
+
+#: lliurex-backup/python3-lliurexbackup/MainWindow.py:247
+msgid "The selected folder has been removed to the backup list"
+msgstr ""
+"La carpeta seleccionada ha sido eliminada de la lista de la copia de "
+"seguridad"
+
+#: lliurex-backup/python3-lliurexbackup/MainWindow.py:249
+msgid "You must select a directory to save the generated backup"
+msgstr ""
+"Debe seleccionar un directorio para guardar la copia de seguridad generada"
+
+#: lliurex-backup/python3-lliurexbackup/MainWindow.py:251
+msgid "You must select a restoration file"
+msgstr "Debe seleccionar un fichero para la restauración"
+
+#: lliurex-backup/python3-lliurexbackup/MainWindow.py:253
+msgid "Restoration complete sucessfully"
+msgstr "Restauración completada correctamente"
+
+#: lliurex-backup/python3-lliurexbackup/MainWindow.py:255
+#, python-format
+msgid ""
+"Restoration failed: \n"
+"%s"
+msgstr ""
+"Restauración fallida: \n"
+"%s"
+
+#: lliurex-backup/python3-lliurexbackup/MainWindow.py:257
+#, python-format
+msgid "%s folder can not be added to the backup list"
+msgstr "%s no puede ser añadida a la lista de la copia de seguridad"
+
+#: lliurex-backup/python3-lliurexbackup/BackupBox.py:151
+#: lliurex-backup/python3-lliurexbackup/BackupBox.py:248
+msgid "Click to not include in the backup"
+msgstr "Haga clic para no incluir en el backup"
+
+#: lliurex-backup/python3-lliurexbackup/BackupBox.py:154
+#: lliurex-backup/python3-lliurexbackup/BackupBox.py:250
+msgid "Click to include in the backup"
+msgstr "Haga clic para incluir en el backup"
+
+#: lliurex-backup/python3-lliurexbackup/BackupBox.py:169
+msgid "Default service. Unable to manage it"
+msgstr "Servicio por defecto. No puede ser gestionado"
+
+#: lliurex-backup/python3-lliurexbackup/BackupBox.py:172
+msgid "Manage service"
+msgstr "Gestionar servicio"
+
+#: lliurex-backup/python3-lliurexbackup/BackupBox.py:187
+msgid "Change the folder"
+msgstr "Cambiar la carpeta"
+
+#: lliurex-backup/python3-lliurexbackup/BackupBox.py:201
+msgid "Remove the folder of the list"
+msgstr "Eliminar la carpeta de la lista"
+
+#: lliurex-backup/python3-lliurexbackup/BackupBox.py:272
+msgid "Please choose a folder"
+msgstr "Seleccione una carpeta"
+
+#: lliurex-backup/python3-lliurexbackup/BackupBox.py:311
+msgid "Custom directory"
+msgstr "Directorio personalizado"
+
+#: lliurex-backup/python3-lliurexbackup/BackupBox.py:330
+msgid "Do you want delete the folder of the list?"
+msgstr "¿Desea eliminar la carpeta de la lista?"
+
+#: lliurex-backup/python3-lliurexbackup/BackupBox.py:387
+msgid "Creating backup file..."
+msgstr "Creando copia de seguridad..."
+
+#: lliurex-backup/python3-lliurexbackup/RestoreBox.py:79
+msgid "Restoring services..."
+msgstr "Restaurando servicios..."
+
+#: lliurex-backup/python3-lliurexbackup/LoginBox.py:103
+msgid "Validating user..."
+msgstr "Validando usuario..."
+
+#: lliurex-backup/python3-lliurexbackup/LoginBox.py:129
+#: lliurex-backup/python3-lliurexbackup/LoginBox.py:147
+msgid "Invalid user"
+msgstr "Usuario no válido"
+
+#: lliurex-backup/python3-lliurexbackup/rsrc/lliurex-backup.ui:17
+msgid "Add folder"
+msgstr "Añadir carpeta"
+
+#: lliurex-backup/python3-lliurexbackup/rsrc/lliurex-backup.ui:21
+msgid "Add folder to the list of services for the backup"
+msgstr "Añadir carpeta a la lista de servicios para la copia de seguridad"
+
+#: lliurex-backup/python3-lliurexbackup/rsrc/lliurex-backup.ui:90
+msgid "Target:"
+msgstr "Destino: "
+
+#: lliurex-backup/python3-lliurexbackup/rsrc/lliurex-backup.ui:103
+msgid "Select folder"
+msgstr "Seleccionar carpeta"
+
+#: lliurex-backup/python3-lliurexbackup/rsrc/lliurex-backup.ui:147
+msgid "User"
+msgstr "Usuario"
+
+#: lliurex-backup/python3-lliurexbackup/rsrc/lliurex-backup.ui:161
+msgid "Password"
+msgstr "Contraseña"
+
+#: lliurex-backup/python3-lliurexbackup/rsrc/lliurex-backup.ui:173
+msgid "Server IP    (Default value : server)"
+msgstr "IP del Servidor (Valor por defecto: server)"
+
+#: lliurex-backup/python3-lliurexbackup/rsrc/lliurex-backup.ui:182
+msgid "Login"
+msgstr "Identificarse"
+
+#: lliurex-backup/python3-lliurexbackup/rsrc/lliurex-backup.ui:311
+msgid "Backup"
+msgstr "Copia de seguridad"
+
+#: lliurex-backup/python3-lliurexbackup/rsrc/lliurex-backup.ui:332
+msgid "Restore"
+msgstr "Restauración"
+
+#: lliurex-backup/python3-lliurexbackup/rsrc/lliurex-backup.ui:375
+msgid "Make Backup"
+msgstr "Ejecutar copia de seguridad"
+
+#: lliurex-backup/python3-lliurexbackup/rsrc/lliurex-backup.ui:391
+msgid "Restore Backup"
+msgstr "Ejecutar restauración"
+
+#: lliurex-backup/python3-lliurexbackup/rsrc/lliurex-backup.ui:485
+msgid "Select a file with a backup to be restored"
+msgstr "Seleccione un fichero con la copia de seguridad a restaurar"
+
+#: lliurex-backup/python3-lliurexbackup/rsrc/lliurex-backup.ui:499
+msgid "Select a file"
+msgstr "Seleccione un fichero"
+
+#~ msgid "<b>Backup</b>"
+#~ msgstr "<b>Copia de seguridad</b>"
+
+#~ msgid "<b>Restore</b>"
+#~ msgstr "<b>Restaurar</b>"
+
+#~ msgid "Select backup folder"
+#~ msgstr "Selecciona el directorio de la copia de seguridad"
+
+#~ msgid "<b>Add the following folder to the backup file</b>"
+#~ msgstr ""
+#~ "<b>Añada el siguiente directorio al fichero de copia de seguridad</b>"
+
+#~ msgid "label"
+#~ msgstr "etiqueta"
+
+#~ msgid "<b>User login</b>"
+#~ msgstr "<b>Entrada de usuario</b>"
+
+#~ msgid "Authentication error"
+#~ msgstr "Error de autenticación"
+
+#~ msgid "Service"
+#~ msgstr "Servicio"
+
+#~ msgid "Description"
+#~ msgstr "Descripción"
+
+#~ msgid "Select a 'Custom directory' entry from the data table to remove it"
+#~ msgstr ""
+#~ "Selecciona una entrada de 'Directorio personalizado' de la tabla para "
+#~ "quitarlo"
+
+#~ msgid "Select a backup file path first"
+#~ msgstr "Selecciona un fichero de copia de seguridad primero"
