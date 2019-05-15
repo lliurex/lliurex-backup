@@ -59,9 +59,10 @@ class BackupBox(Gtk.VBox):
 
 		f=Gio.File.new_for_path(self.css_file)
 		self.style_provider.load_from_file(f)
-
 		Gtk.StyleContext.add_provider_for_screen(Gdk.Screen.get_default(),self.style_provider,Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION)
-				
+		
+		self.target_label.set_name("OPTION_LABEL")
+					
 	#def set_css_info	
 
 	def init_threads(self):

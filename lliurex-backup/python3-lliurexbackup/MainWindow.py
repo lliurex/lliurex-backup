@@ -153,6 +153,8 @@ class MainWindow:
 		
 	def label_clicked(self,widget,event,option):
 
+		self.feedback_label.set_text("")
+		
 		if option==0:
 			self.restore_button.hide()
 			self.backup_button.show()
