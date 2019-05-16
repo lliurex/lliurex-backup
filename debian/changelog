@@ -1,3 +1,9 @@
+lliurex-backup (0.21) bionic; urgency=medium
+
+  * Restyling gui 
+
+ -- Juan Ramon Pelegrina <juapesai@hotmail.com>  Thu, 16 May 2019 12:28:20 +0200
+
 lliurex-backup (0.20) bionic; urgency=medium
 
   * Initial release for bionic
