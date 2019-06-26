@@ -1,3 +1,9 @@
+lliurex-backup (0.26) bionic; urgency=medium
+
+  * Disable debug mode
+
+ -- Juan Ramon Pelegrina <juapesai@hotmail.com>  Wed, 26 Jun 2019 11:34:29 +0200
+
 lliurex-backup (0.25) bionic; urgency=medium
 
   * Fixed backup of basic services
