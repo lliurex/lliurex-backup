@@ -357,8 +357,8 @@ class BackupBox(Gtk.VBox):
 		for item in self.core.mainWindow.services_list:
 			if self.core.mainWindow.services_list[item][2]:
 				class_name=self.core.mainWindow.services_list[item][4]
-				if class_name=="ServeBackupManager":
-					user_basics=True
+				if class_name=="ServerBackupManager":
+					use_basics=True
 				else:
 					service_list.append(class_name)
 				if self.core.mainWindow.services_list[item][3]!=1:
@@ -368,13 +368,14 @@ class BackupBox(Gtk.VBox):
 
 		if use_basics:
 			try:
-				server_basics=self.core.loginBox.n4d.get_basic_services_list("","ServerBackupManager")
+				server_basics=self.core.backupmanager.n4d.get_basic_services_list("","ServerBackupManager")
 			except:
 				server_basics=[]
 			for service in service_list:
 				if service not in server_basics:
 					server_basics.append(service)	
 
+			service_list=server_basics		
 		if len(folder_list)>0:
 			if "NetFoldersManager" not in service_list:
 				service_list.append("NetFoldersManager")
