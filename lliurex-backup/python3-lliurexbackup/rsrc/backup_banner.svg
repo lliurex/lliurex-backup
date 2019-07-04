@@ -19,7 +19,7 @@
    width="700"
    inkscape:output_extension="org.inkscape.output.svg.inkscape"
    version="1.1"
-   inkscape:export-filename="/home/lliurex/Desarrollo/lliurex-backup/install-files/usr/share/lliurex-backup/rsrc/backup_banner.png"
+   inkscape:export-filename="/home/lliurex/git/lliurex-backup/lliurex-backup/python3-lliurexbackup/rsrc/backup_banner.png"
    inkscape:export-xdpi="96"
    inkscape:export-ydpi="96">
   <defs
@@ -7245,19 +7245,30 @@
          stdDeviation="3.9664949"
          id="feGaussianBlur5155" />
     </filter>
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5425"
+       id="radialGradient2456"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.63951663,-0.00649688,0.00162673,0.16012637,3.3059322,-136.75453)"
+       cx="119.1193"
+       cy="999.68469"
+       fx="119.1193"
+       fy="999.68469"
+       r="120.17857" />
   </defs>
   <sodipodi:namedview
-     inkscape:window-y="30"
+     inkscape:window-y="36"
      inkscape:window-x="0"
-     inkscape:window-height="864"
+     inkscape:window-height="897"
      inkscape:window-width="1920"
      inkscape:document-units="px"
      inkscape:grid-bbox="true"
      showgrid="false"
      inkscape:current-layer="g5558"
-     inkscape:cy="89.564015"
-     inkscape:cx="-28.682268"
-     inkscape:zoom="0.7071068"
+     inkscape:cy="51.106727"
+     inkscape:cx="337.04627"
+     inkscape:zoom="1.4142136"
      inkscape:pageshadow="2"
      inkscape:pageopacity="0.0"
      borderopacity="1"
@@ -7270,7 +7281,18 @@
      borderlayer="true"
      inkscape:snap-nodes="false"
      showguides="true"
-     inkscape:guide-bbox="true" />
+     inkscape:guide-bbox="true">
+    <sodipodi:guide
+       position="-0.49999999,75.999998"
+       orientation="1,0"
+       id="guide2460"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="699.49998,-19.999999"
+       orientation="1,0"
+       id="guide2462"
+       inkscape:locked="false" />
+  </sodipodi:namedview>
   <metadata
      id="metadata4">
     <rdf:RDF>
@@ -7279,7 +7301,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
         <dc:creator>
           <cc:Agent>
             <dc:title>Jakub Steiner</dc:title>
@@ -7390,7 +7412,7 @@
              y="102" /></flowRegion><flowPara
            id="flowPara5724"
            style="font-size:40px;line-height:1.25"> </flowPara></flowRoot>      <rect
-         style="color:#000000;display:inline;overflow:visible;visibility:visible;opacity:1;fill:url(#radialGradient5431);fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.3158766;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker:none;enable-background:accumulate"
+         style="color:#000000;display:inline;overflow:visible;visibility:visible;opacity:1;fill:url(#radialGradient2456);fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.3158766;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker:none;enable-background:accumulate"
          id="rect5110"
          width="171.33386"
          height="29.970978"

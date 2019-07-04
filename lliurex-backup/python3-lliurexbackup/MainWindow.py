@@ -61,6 +61,7 @@ class MainWindow:
 		self.main_window.set_title("LliureX Backup")
 		self.main_window.resize(700,750)
 		self.main_box=builder.get_object("main_box")
+		self.banner_box=builder.get_object("banner_box")
 		
 		self.options_box=builder.get_object("options_box")
 		self.backup_eventbox=builder.get_object("backup_eventbox")
@@ -126,6 +127,7 @@ class MainWindow:
 		self.main_window.set_name("WINDOW")
 		self.backup_label.set_name("MAIN_LABEL_ENABLED")
 		self.restore_label.set_name("MAIN_LABEL_DISABLED")
+		self.banner_box.set_name("BANNER-BOX")
 
 	#def set_css_info	
 				
