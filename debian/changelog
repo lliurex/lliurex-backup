@@ -1,3 +1,9 @@
+lliurex-backup (0.27) bionic; urgency=medium
+
+  * Fixed login window
+
+ -- Juan Ramon Pelegrina <juapesai@hotmail.com>  Thu, 04 Jul 2019 10:54:12 +0200
+
 lliurex-backup (0.26) bionic; urgency=medium
 
   * Disable debug mode
