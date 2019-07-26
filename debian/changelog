@@ -1,3 +1,9 @@
+lliurex-backup (0.28) bionic; urgency=medium
+
+  * Adding ca@valencia translation
+
+ -- Hector Garcia Huerta <hectorgh@gmail.com>  Fri, 26 Jul 2019 11:15:30 +0200
+
 lliurex-backup (0.27) bionic; urgency=medium
 
   * Fixed login window
