@@ -1,3 +1,9 @@
+lliurex-backup (0.29) bionic; urgency=medium
+
+  * Updated the link to the help
+  
+ -- Juan Ramon Pelegrina <juapesai@hotmail.com>  Thu, 05 Sep 2019 14:13:59 +0200
+
 lliurex-backup (0.28) bionic; urgency=medium
 
   * Adding ca@valencia translation
