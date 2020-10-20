@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-15 08:46+0200\n"
-"PO-Revision-Date: 2019-05-15 12:04+0200\n"
+"PO-Revision-Date: 2020-10-20 11:11+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: es\n"
@@ -39,11 +39,11 @@ msgstr "Configuración de NFS"
 
 #: lliurex-backup/python3-lliurexbackup/MainWindow.py:34
 msgid "Moodle"
-msgstr ""
+msgstr "Moodle"
 
 #: lliurex-backup/python3-lliurexbackup/MainWindow.py:35
 msgid "Pmb"
-msgstr ""
+msgstr "Pmb"
 
 #: lliurex-backup/python3-lliurexbackup/MainWindow.py:237
 #, python-format
@@ -174,7 +174,7 @@ msgstr "Añadir carpeta a la lista de servicios para la copia de seguridad"
 
 #: lliurex-backup/python3-lliurexbackup/rsrc/lliurex-backup.ui:90
 msgid "Target:"
-msgstr "Destino: "
+msgstr "Destino:"
 
 #: lliurex-backup/python3-lliurexbackup/rsrc/lliurex-backup.ui:103
 msgid "Select folder"
@@ -219,39 +219,3 @@ msgstr "Seleccione un fichero con la copia de seguridad a restaurar"
 #: lliurex-backup/python3-lliurexbackup/rsrc/lliurex-backup.ui:499
 msgid "Select a file"
 msgstr "Seleccione un fichero"
-
-#~ msgid "<b>Backup</b>"
-#~ msgstr "<b>Copia de seguridad</b>"
-
-#~ msgid "<b>Restore</b>"
-#~ msgstr "<b>Restaurar</b>"
-
-#~ msgid "Select backup folder"
-#~ msgstr "Selecciona el directorio de la copia de seguridad"
-
-#~ msgid "<b>Add the following folder to the backup file</b>"
-#~ msgstr ""
-#~ "<b>Añada el siguiente directorio al fichero de copia de seguridad</b>"
-
-#~ msgid "label"
-#~ msgstr "etiqueta"
-
-#~ msgid "<b>User login</b>"
-#~ msgstr "<b>Entrada de usuario</b>"
-
-#~ msgid "Authentication error"
-#~ msgstr "Error de autenticación"
-
-#~ msgid "Service"
-#~ msgstr "Servicio"
-
-#~ msgid "Description"
-#~ msgstr "Descripción"
-
-#~ msgid "Select a 'Custom directory' entry from the data table to remove it"
-#~ msgstr ""
-#~ "Selecciona una entrada de 'Directorio personalizado' de la tabla para "
-#~ "quitarlo"
-
-#~ msgid "Select a backup file path first"
-#~ msgstr "Selecciona un fichero de copia de seguridad primero"
