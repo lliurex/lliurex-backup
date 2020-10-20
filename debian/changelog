@@ -1,3 +1,9 @@
+lliurex-backup (0.31) bionic; urgency=medium
+
+  * Fixed po file
+  
+ -- Juan Ramon Pelegrina <juapesai@hotmail.com>  Tue, 20 Oct 2020 11:15:03 +0200
+
 lliurex-backup (0.30) bionic; urgency=medium
 
   * Updated control file to change python dependency for python3
