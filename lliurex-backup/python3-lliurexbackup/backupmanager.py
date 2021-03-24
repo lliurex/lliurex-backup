@@ -8,7 +8,7 @@ import json
 import codecs
 import datetime
 
-import xmlrpc.client as n4dclient
+import n4d.client
 import ssl
 import shutil
 import re
@@ -27,23 +27,25 @@ class BackupManager(object):
 		self.user_groups=[]
 		self.validation=None
 
+		'''
 		if server!=None:
 			self.set_server(server)
 
 		context=ssl._create_unverified_context()
 		self.n4d_local = n4dclient.ServerProxy("https://localhost:9779",context=context,allow_none=True)	
+		'''
 		self.detect_flavour()	
 	
 	#def __init__	
 	
-
+	'''
 	def set_server(self,server):	
 		
 		context=ssl._create_unverified_context()	
 		self.n4d=n4dclient.ServerProxy("https://"+server+":9779",context=context,allow_none=True)
 	
 	#def set_server
-		
+	'''	
 	def detect_flavour(self):
 		
 		cmd='lliurex-version -v'
@@ -56,15 +58,28 @@ class BackupManager(object):
 
 	#def detect_flavour
 
-	def validate_user(self,user,password):
+	def validate_user(self,server,user,password):
 		
-		ret=self.n4d.validate_user(user,password)
-		self.user_validated,self.user_groups=ret
+		try:
+			self.client=n4d.client.Client("https://%s:9779"%server,user,password)
+
+			ret=self.client.validate_user()
+			self.user_validated,self.user_groups=ret
+			ret=self.client.validate_user()
+			self.user_validated=ret[0]
+			self.user_groups=ret[1]	
 			
-		
-		if self.user_validated:
-			self.validation=(user,password)
-					
+			if self.user_validated:
+				self.ticket=self.client.get_ticket()
+				if self.ticket.valid():
+					self.client=n4d.client.Client(ticket=self.ticket)
+				else:
+					self.user_validated=False
+
+		except Exception as e:
+			self._debug("Validate user ",str(e))
+			self.user_validated=False
+
 		#return self.user_validated
 		
 	#def validate_user
@@ -72,8 +87,8 @@ class BackupManager(object):
 	def backup(self,path,services,folders):
 
 		try:
-			self.backup_ret=self.n4d.backup(self.validation,"ServerBackupManager",path,services,folders)
-			self.backup_ret=[True,self.backup_ret[2]]
+			ret=self.client.ServerBackupManager.backup(path,services,folders)
+			self.backup_ret=[True,ret]
 			
 		except Exception as e:
 			self.backup_ret=[False,str(e)]
@@ -88,7 +103,8 @@ class BackupManager(object):
 	def restore (self,path):
 
 		try:
-			self.restore_ret=self.n4d.restore(self.validation,"ServerBackupManager",path)
+			self.restore_ret=self.client.ServerBackupManager.restore(path)
+			
 		except Exception as e:
 			self.restore_ret=[False,str(e)]
 		

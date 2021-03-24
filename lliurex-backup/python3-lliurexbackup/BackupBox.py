@@ -368,7 +368,7 @@ class BackupBox(Gtk.VBox):
 
 		if use_basics:
 			try:
-				server_basics=self.core.backupmanager.n4d.get_basic_services_list("","ServerBackupManager")
+				server_basics=self.core.backupmanager.client.ServerBackupManager.get_basic_services_list()
 			except:
 				server_basics=[]
 			for service in service_list:
