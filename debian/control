@@ -8,7 +8,7 @@ Standards-Version: 4.1.2
 
 Package: lliurex-backup
 Architecture: all
-Depends: python3, n4d,python3-n4d-client,n4d-apache, n4d-cups, n4d-dnsmasq, n4d-hostname, n4d-ldap, n4d-lliurex-base, n4d-mysql, n4d-netfolders, n4d-network, n4d-pamnss, n4d-proxy, n4d-samba, n4d-server-plugins, n4d-backup-manager, ${misc:Depends}
+Depends: python3, n4d,python3-n4d-client,n4d-apache, n4d-cups, n4d-dnsmasq, n4d-hostname, n4d-ldap, n4d-lliurex-base, n4d-mysql, n4d-netfolders, n4d-network, n4d-pamnss,n4d-samba, n4d-server-plugins, n4d-backup-manager, ${misc:Depends}
 Recommends: lliurex-backup-zerocenter-files(=${binary:Version})
 Description: Lliurex backup GUI
  GUI to backup and restore lliurex services and folders
