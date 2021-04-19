@@ -1,3 +1,9 @@
+lliurex-backup (0.42) focal; urgency=medium
+
+  * Removed n4d-proxy from depends
+  
+ -- Juan Ramon Pelegrina <juapesai@hotmail.com>  Mon, 19 Apr 2021 14:32:00 +0200
+
 lliurex-backup (0.41) focal; urgency=medium
 
   * Initial release in focal
