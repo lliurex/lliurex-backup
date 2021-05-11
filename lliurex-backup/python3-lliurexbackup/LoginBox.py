@@ -35,6 +35,8 @@ class LoginBox(Gtk.VBox):
 		self.user_entry=builder.get_object("user_entry")
 		self.password_entry=builder.get_object("password_entry")
 		self.server_ip_entry=builder.get_object("server_ip_entry")
+		self.login_msg_box=builder.get_object("login_msg_box")
+		self.login_error_img=builder.get_object("login_error_img")
 		self.login_msg_label=builder.get_object("login_msg_label")
 
 		self.pack_start(self.login_box,True,True,0)
@@ -55,7 +57,8 @@ class LoginBox(Gtk.VBox):
 		Gtk.StyleContext.add_provider_for_screen(Gdk.Screen.get_default(),self.style_provider,Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION)
 		self.user_entry.set_name("CUSTOM-ENTRY")
 		self.password_entry.set_name("CUSTOM-ENTRY")
-		self.server_ip_entry.set_name("CUSTOM-ENTRY")		
+		self.server_ip_entry.set_name("CUSTOM-ENTRY")
+		self.login_msg_box.set_name("HIDE_BOX")		
 	#def set_css_info	
 
 	def connect_signals(self):
@@ -82,6 +85,8 @@ class LoginBox(Gtk.VBox):
 	
 	def login_clicked(self,widget):
 		
+		self.login_msg_box.set_name("HIDE_BOX")
+		self.login_error_img.hide()
 		user=self.user_entry.get_text()
 		password=self.password_entry.get_text()
 		server=self.server_ip_entry.get_text()
@@ -99,7 +104,7 @@ class LoginBox(Gtk.VBox):
 			server='server'		
 		
 		self.login_msg_label.set_text(_("Validating user..."))
-		
+		self.login_msg_label.set_halign(Gtk.Align.CENTER)
 		self.login_button.set_sensitive(False)
 		self.validate_user(server,user,password)	
 
@@ -119,12 +124,14 @@ class LoginBox(Gtk.VBox):
 	
 	def validate_user_listener(self,thread):
 			
+		error=False
 		if thread.is_alive():
 			return True
 				
 		self.login_button.set_sensitive(True)
 		if not self.core.backupmanager.user_validated:
-			self.login_msg_label.set_markup("<span foreground='red'>"+_("Invalid user")+"</span>")
+			error=True
+
 		else:
 			group_found=False
 			for g in ["sudo","admins","teachers"]:
@@ -142,8 +149,16 @@ class LoginBox(Gtk.VBox):
 				self.core.mainWindow.stack_opt.set_visible_child_name("backupBox")
 							
 			else:
-				self.login_msg_label.set_markup("<span foreground='red'>"+_("Invalid user")+"</span>")
-				
+				error=True
+			
+		if error:
+			self.login_msg_box.set_name("ERROR_BOX")
+			self.login_msg_label.set_name("FEEDBACK_LABEL")
+			self.login_error_img.show()
+			self.login_msg_label.set_text(_("Invalid user"))
+			#self.login_msg_label.set_markup("<span foreground='red'>"+_("Invalid user")+"</span>")
+			self.login_msg_label.set_halign(Gtk.Align.START)
+
 		return False
 			
 	#def validate_user_listener

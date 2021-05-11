@@ -63,6 +63,12 @@ class RestoreBox(Gtk.VBox):
 
 	def restore_clicked(self,widget):
 
+		self.core.mainWindow.feedback_label.set_name("OPTION_LABEL")
+		self.core.mainWindow.feedback_msg_box.set_name("HIDE_BOX")
+		self.core.mainWindow.feedback_error_img.hide()
+		self.core.mainWindow.feedback_ok_img.hide()
+		self.core.mainWindow.feedback_label.set_halign(Gtk.Align.CENTER)
+
 		path=self.restorefile_fc.get_filename()
 		self.core.mainWindow.manage_box_control(False)
 
@@ -74,7 +80,7 @@ class RestoreBox(Gtk.VBox):
 		self.core.pulsating=True
 		self.core.mainWindow.last_action=1
 		GLib.timeout_add(250,self.core.mainWindow.pulse_bar)
-		self.core.mainWindow.feedback_label.set_name("WAITING_LABEL")
+		#self.core.mainWindow.feedback_label.set_name("WAITING_LABEL")
 		self.core.mainWindow.feedback_label.set_text(_("Restoring services..."))
 		self.core.mainWindow.feedback_progressbar.show()
 		self.restore_thread=threading.Thread(target=self.core.backupmanager.restore,args=(path,))
