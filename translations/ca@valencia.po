@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-15 08:46+0200\n"
-"PO-Revision-Date: 2019-05-20 11:34+0200\n"
+"POT-Creation-Date: 2021-05-11 11:50+0200\n"
+"PO-Revision-Date: 2021-05-11 11:56+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: ca@valencia\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.7.1\n"
+"X-Generator: Poedit 2.3\n"
 
 #: lliurex-backup/python3-lliurexbackup/MainWindow.py:29
 msgid "LliureX Server basic services"
@@ -46,19 +46,23 @@ msgid "Pmb"
 msgstr "Pmb"
 
 #: lliurex-backup/python3-lliurexbackup/MainWindow.py:237
+#: lliurex-backup/python3-lliurexbackup/MainWindow.py:262
 #, python-format
 msgid "%s or its parent path is already in the backup list"
 msgstr "%s o el seu camí superior ja existeixen en la llista de la còpia de seguretat"
 
 #: lliurex-backup/python3-lliurexbackup/MainWindow.py:239
+#: lliurex-backup/python3-lliurexbackup/MainWindow.py:264
 msgid "The selected folder has been edited successfully"
 msgstr "S'ha editat correctament la carpeta seleccionada"
 
 #: lliurex-backup/python3-lliurexbackup/MainWindow.py:241
+#: lliurex-backup/python3-lliurexbackup/MainWindow.py:266
 msgid "The selected folder has been added to the backup list"
 msgstr "S'ha afegit la capeta seleccionada a la llista de la còpia de seguretat"
 
 #: lliurex-backup/python3-lliurexbackup/MainWindow.py:243
+#: lliurex-backup/python3-lliurexbackup/MainWindow.py:268
 #, python-format
 msgid ""
 "Backup file created successfully: \n"
@@ -68,6 +72,7 @@ msgstr ""
 "%s "
 
 #: lliurex-backup/python3-lliurexbackup/MainWindow.py:245
+#: lliurex-backup/python3-lliurexbackup/MainWindow.py:270
 #, python-format
 msgid ""
 "Creation of backup file failed: \n"
@@ -77,22 +82,27 @@ msgstr ""
 "%s"
 
 #: lliurex-backup/python3-lliurexbackup/MainWindow.py:247
+#: lliurex-backup/python3-lliurexbackup/MainWindow.py:272
 msgid "The selected folder has been removed to the backup list"
 msgstr "La carpeta seleccionada s'ha eliminat de la llista de la còpia de seguretat"
 
 #: lliurex-backup/python3-lliurexbackup/MainWindow.py:249
+#: lliurex-backup/python3-lliurexbackup/MainWindow.py:274
 msgid "You must select a directory to save the generated backup"
 msgstr "Heu de seleccionar un directori per a guardar la còpia de seguretat creada"
 
 #: lliurex-backup/python3-lliurexbackup/MainWindow.py:251
+#: lliurex-backup/python3-lliurexbackup/MainWindow.py:276
 msgid "You must select a restoration file"
 msgstr "Heu de seleccionar un fitxer de restauració"
 
 #: lliurex-backup/python3-lliurexbackup/MainWindow.py:253
+#: lliurex-backup/python3-lliurexbackup/MainWindow.py:278
 msgid "Restoration complete sucessfully"
 msgstr "La restauració s'ha completat correctament"
 
 #: lliurex-backup/python3-lliurexbackup/MainWindow.py:255
+#: lliurex-backup/python3-lliurexbackup/MainWindow.py:280
 #, python-format
 msgid ""
 "Restoration failed: \n"
@@ -102,62 +112,78 @@ msgstr ""
 "%s"
 
 #: lliurex-backup/python3-lliurexbackup/MainWindow.py:257
+#: lliurex-backup/python3-lliurexbackup/MainWindow.py:282
 #, python-format
 msgid "%s folder can not be added to the backup list"
 msgstr "No es pot afegir la carpeta %s a la llista de la còpia de seguretat"
 
 #: lliurex-backup/python3-lliurexbackup/BackupBox.py:151
 #: lliurex-backup/python3-lliurexbackup/BackupBox.py:248
+#: lliurex-backup/python3-lliurexbackup/BackupBox.py:153
+#: lliurex-backup/python3-lliurexbackup/BackupBox.py:250
 msgid "Click to not include in the backup"
 msgstr "Feu clic per a no incloure-la en la llista de seguretat"
 
 #: lliurex-backup/python3-lliurexbackup/BackupBox.py:154
 #: lliurex-backup/python3-lliurexbackup/BackupBox.py:250
+#: lliurex-backup/python3-lliurexbackup/BackupBox.py:156
+#: lliurex-backup/python3-lliurexbackup/BackupBox.py:252
 msgid "Click to include in the backup"
 msgstr "Feu clic per a incloure-la en la llista de seguretat"
 
 #: lliurex-backup/python3-lliurexbackup/BackupBox.py:169
+#: lliurex-backup/python3-lliurexbackup/BackupBox.py:171
 msgid "Default service. Unable to manage it"
 msgstr "Servei predeterminat. No es pot gestionar"
 
 #: lliurex-backup/python3-lliurexbackup/BackupBox.py:172
+#: lliurex-backup/python3-lliurexbackup/BackupBox.py:174
 msgid "Manage service"
 msgstr "Gestiona el servei"
 
 #: lliurex-backup/python3-lliurexbackup/BackupBox.py:187
+#: lliurex-backup/python3-lliurexbackup/BackupBox.py:189
 msgid "Change the folder"
 msgstr "Canvia la carpeta"
 
 #: lliurex-backup/python3-lliurexbackup/BackupBox.py:201
+#: lliurex-backup/python3-lliurexbackup/BackupBox.py:203
 msgid "Remove the folder of the list"
 msgstr "Elimina la carpeta de la llista"
 
 #: lliurex-backup/python3-lliurexbackup/BackupBox.py:272
+#: lliurex-backup/python3-lliurexbackup/BackupBox.py:274
 msgid "Please choose a folder"
 msgstr "Trieu una carpeta"
 
 #: lliurex-backup/python3-lliurexbackup/BackupBox.py:311
+#: lliurex-backup/python3-lliurexbackup/BackupBox.py:313
 msgid "Custom directory"
 msgstr "Directori personalitzat"
 
 #: lliurex-backup/python3-lliurexbackup/BackupBox.py:330
+#: lliurex-backup/python3-lliurexbackup/BackupBox.py:332
 msgid "Do you want delete the folder of the list?"
 msgstr "Voleu eliminar la carpeta de la llista?"
 
 #: lliurex-backup/python3-lliurexbackup/BackupBox.py:387
+#: lliurex-backup/python3-lliurexbackup/BackupBox.py:407
 msgid "Creating backup file..."
 msgstr "S'està creant el fitxer de la còpia de seguretat..."
 
 #: lliurex-backup/python3-lliurexbackup/RestoreBox.py:79
+#: lliurex-backup/python3-lliurexbackup/RestoreBox.py:84
 msgid "Restoring services..."
 msgstr "S'estan restaurant els serveis..."
 
 #: lliurex-backup/python3-lliurexbackup/LoginBox.py:103
+#: lliurex-backup/python3-lliurexbackup/LoginBox.py:106
 msgid "Validating user..."
 msgstr "S'està validant l'usuari..."
 
 #: lliurex-backup/python3-lliurexbackup/LoginBox.py:129
 #: lliurex-backup/python3-lliurexbackup/LoginBox.py:147
+#: lliurex-backup/python3-lliurexbackup/LoginBox.py:158
 msgid "Invalid user"
 msgstr "L'usuari no és vàlid"
 
@@ -194,25 +220,44 @@ msgid "Login"
 msgstr "Inicia la sessió"
 
 #: lliurex-backup/python3-lliurexbackup/rsrc/lliurex-backup.ui:311
+#: lliurex-backup/python3-lliurexbackup/rsrc/lliurex-backup.ui:348
 msgid "Backup"
 msgstr "Còpia de seguretat "
 
 #: lliurex-backup/python3-lliurexbackup/rsrc/lliurex-backup.ui:332
+#: lliurex-backup/python3-lliurexbackup/rsrc/lliurex-backup.ui:369
 msgid "Restore"
 msgstr "Restaura "
 
 #: lliurex-backup/python3-lliurexbackup/rsrc/lliurex-backup.ui:375
+#: lliurex-backup/python3-lliurexbackup/rsrc/lliurex-backup.ui:412
 msgid "Make Backup"
 msgstr "Crea  una còpia de seguretat"
 
 #: lliurex-backup/python3-lliurexbackup/rsrc/lliurex-backup.ui:391
+#: lliurex-backup/python3-lliurexbackup/rsrc/lliurex-backup.ui:428
 msgid "Restore Backup"
 msgstr "Restaura la còpia de seguretat"
 
 #: lliurex-backup/python3-lliurexbackup/rsrc/lliurex-backup.ui:485
+#: lliurex-backup/python3-lliurexbackup/rsrc/lliurex-backup.ui:570
 msgid "Select a file with a backup to be restored"
 msgstr "Seleccioneu un fitxer amb una còpia de seguretat que calga restaurar"
 
 #: lliurex-backup/python3-lliurexbackup/rsrc/lliurex-backup.ui:499
+#: lliurex-backup/python3-lliurexbackup/rsrc/lliurex-backup.ui:584
 msgid "Select a file"
 msgstr "Seleccioneu un fitxer"
+
+#: lliurex-backup/python3-lliurexbackup/MainWindow.py:284
+#, python-format
+msgid ""
+"Backup file created with errors: \n"
+"%s"
+msgstr ""
+"El fitxer de la còpia de seguretat s'ha creat amb errors:\n"
+"%s "
+
+#: lliurex-backup/python3-lliurexbackup/MainWindow.py:286
+msgid "You must select at least one service to backup"
+msgstr "Heu de seleccionar almenys un servei per a la còpia de seguretat"
