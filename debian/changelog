@@ -1,3 +1,10 @@
+lliurex-backup (0.43) focal; urgency=medium
+
+  * Fixed errors in new n4d integration
+  * Changed style of gui
+
+ -- Juan Ramon Pelegrina <juapesai@hotmail.com>  Tue, 11 May 2021 12:07:27 +0200
+
 lliurex-backup (0.42) focal; urgency=medium
 
   * Removed n4d-proxy from depends
