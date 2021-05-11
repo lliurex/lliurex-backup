@@ -69,6 +69,9 @@ class MainWindow:
 		self.restore_eventbox=builder.get_object("restore_eventbox")
 		self.restore_label=builder.get_object("restore_label")
 
+		self.feedback_msg_box=builder.get_object("feedback_msg_box")
+		self.feedback_ok_img=builder.get_object("feedback_ok_img")
+		self.feedback_error_img=builder.get_object("feedback_error_img")
 		self.feedback_label=builder.get_object("feedback_label")
 		self.feedback_progressbar=builder.get_object("feedback_progressbar")
 
@@ -102,11 +105,14 @@ class MainWindow:
 		self.connect_signals()
 		self.core.loginBox.login_button.grab_focus()
 		self.main_window.show_all()
+		self.core.loginBox.login_error_img.hide()
 		self.stack_window.set_transition_type(Gtk.StackTransitionType.NONE)
 		self.stack_window.set_visible_child_name("loginBox")
 		self.restore_button.hide()
 		self.feedback_label.set_text("")
 		self.feedback_progressbar.hide()
+		self.feedback_ok_img.hide()
+		self.feedback_error_img.hide()
 
 		
 	#def load_gui
@@ -124,10 +130,11 @@ class MainWindow:
 		f=Gio.File.new_for_path(self.css_file)
 		self.style_provider.load_from_file(f)
 		Gtk.StyleContext.add_provider_for_screen(Gdk.Screen.get_default(),self.style_provider,Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION)
-		self.main_window.set_name("WINDOW")
+		#self.main_window.set_name("WINDOW")
 		self.backup_label.set_name("MAIN_LABEL_ENABLED")
 		self.restore_label.set_name("MAIN_LABEL_DISABLED")
 		self.banner_box.set_name("BANNER-BOX")
+		self.feedback_label.set_name("OPTION_LABEL")
 
 	#def set_css_info	
 				
@@ -156,7 +163,10 @@ class MainWindow:
 	def label_clicked(self,widget,event,option):
 
 		self.feedback_label.set_text("")
-		
+		self.feedback_msg_box.set_name("HIDE_BOX")
+		self.feedback_error_img.hide()
+		self.feedback_ok_img.hide()
+
 		if option==0:
 			self.restore_button.hide()
 			self.backup_button.show()
@@ -186,7 +196,10 @@ class MainWindow:
 			elif self.core.backupmanager.backup_ret!=None:
 				if self.core.backupmanager.backup_ret[0]:
 					self.last_action=0
-					self.manage_message(False,4,self.core.backupmanager.backup_ret[1])
+					if self.core.backupmanager.backup_ret[2]>0:
+						self.manage_message(True,12,self.core.backupmanager.backup_ret[1])
+					else:
+						self.manage_message(False,4,self.core.backupmanager.backup_ret[1])
 				else:
 					self.manage_message(True,5,self.core.backupmanager.backup_ret[1])
 
@@ -225,11 +238,19 @@ class MainWindow:
 			msg=msg%data
 		
 		if error:
-			self.feedback_label.set_name("MSG_ERROR_LABEL")
+			self.feedback_msg_box.set_name("ERROR_BOX")
+			self.feedback_ok_img.hide()
+			self.feedback_error_img.show()
+			#self.feedback_label.set_name("MSG_ERROR_LABEL")
 		else:
-			self.feedback_label.set_name("MSG_CORRECT_LABEL")	
+			self.feedback_msg_box.set_name("SUCCESS_BOX")
+			self.feedback_ok_img.show()
+			self.feedback_error_img.hide()
+			#self.feedback_label.set_name("MSG_CORRECT_LABEL")	
 
 		self.feedback_label.set_text(msg)
+		self.feedback_label.set_name("FEEDBACK_LABEL")
+		self.feedback_label.set_halign(Gtk.Align.START)
 
 	#def manage_message		
 
@@ -259,6 +280,10 @@ class MainWindow:
 			msg_text=_("Restoration failed: \n%s")	
 		elif code==11:
 			msg_text=_("%s folder can not be added to the backup list")	
+		elif code==12:
+			msg_text=_("Backup file created with errors: \n%s")	
+		elif code==13:
+			msg_text=_("You must select at least one service to backup")	
 
 		return msg_text
 

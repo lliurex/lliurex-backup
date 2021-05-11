@@ -62,6 +62,7 @@ class BackupBox(Gtk.VBox):
 		Gtk.StyleContext.add_provider_for_screen(Gdk.Screen.get_default(),self.style_provider,Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION)
 		
 		self.target_label.set_name("OPTION_LABEL")
+		self.services_list_box.set_name("WINDOW")
 					
 	#def set_css_info	
 
@@ -341,6 +342,12 @@ class BackupBox(Gtk.VBox):
 
 	def backup_clicked(self,widget):
 
+		self.core.mainWindow.feedback_label.set_name("OPTION_LABEL")
+		self.core.mainWindow.feedback_msg_box.set_name("HIDE_BOX")
+		self.core.mainWindow.feedback_error_img.hide()
+		self.core.mainWindow.feedback_ok_img.hide()
+		self.core.mainWindow.feedback_label.set_halign(Gtk.Align.CENTER)
+
 		self.core.mainWindow.manage_box_control(False)
 
 		path=self.backupfile_chooserbutton.get_filename()
@@ -349,6 +356,17 @@ class BackupBox(Gtk.VBox):
 			self.core.mainWindow.manage_message(True,7)
 			self.core.mainWindow.manage_box_control(True)
 			return
+
+		count=0
+		for item in self.core.mainWindow.services_list:
+			if self.core.mainWindow.services_list[item][2]:
+				count+=1
+
+		if count==0:
+			self.core.mainWindow.manage_message(True,13)
+			self.core.mainWindow.manage_box_control(True)
+			return
+				
 
 		folder_list=[]
 		service_list=[]
@@ -368,8 +386,8 @@ class BackupBox(Gtk.VBox):
 
 		if use_basics:
 			try:
-				server_basics=self.core.backupmanager.client.ServerBackupManager.get_basic_services_list()
-			except:
+				server_basics=self.core.backupmanager.get_basic_services_list()
+			except Exception as e:
 				server_basics=[]
 			for service in service_list:
 				if service not in server_basics:
@@ -385,7 +403,7 @@ class BackupBox(Gtk.VBox):
 		self.core.mainWindow.last_action=0
 		self.core.pulsating=True
 		GLib.timeout_add(250,self.core.mainWindow.pulse_bar)
-		self.core.mainWindow.feedback_label.set_name("WAITING_LABEL")
+		#self.core.mainWindow.feedback_label.set_name("WAITING_LABEL")
 		self.core.mainWindow.feedback_label.set_text(_("Creating backup file..."))
 		self.core.mainWindow.feedback_progressbar.show()
 		self.backup_thread=threading.Thread(target=self.core.backupmanager.backup,args=(path,service_list,folder_list))
