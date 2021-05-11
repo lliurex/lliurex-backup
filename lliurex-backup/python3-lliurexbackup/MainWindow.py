@@ -186,7 +186,10 @@ class MainWindow:
 			elif self.core.backupmanager.backup_ret!=None:
 				if self.core.backupmanager.backup_ret[0]:
 					self.last_action=0
-					self.manage_message(False,4,self.core.backupmanager.backup_ret[1])
+					if self.core.backupmanager.backup_ret[2]>0:
+						self.manage_message(True,12,self.core.backupmanager.backup_ret[1])
+					else:
+						self.manage_message(False,4,self.core.backupmanager.backup_ret[1])
 				else:
 					self.manage_message(True,5,self.core.backupmanager.backup_ret[1])
 
@@ -259,6 +262,8 @@ class MainWindow:
 			msg_text=_("Restoration failed: \n%s")	
 		elif code==11:
 			msg_text=_("%s folder can not be added to the backup list")	
+		elif code==12:
+			msg_text=_("Backup file has been generated with errors: \n%s")	
 
 		return msg_text
 

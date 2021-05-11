@@ -22,7 +22,7 @@ class BackupManager(object):
 
 		super(BackupManager, self).__init__()
 
-		self.dbg=0
+		self.dbg=1
 		self.user_validated=False
 		self.user_groups=[]
 		self.validation=None
@@ -84,16 +84,35 @@ class BackupManager(object):
 		
 	#def validate_user
 
+	def get_basic_services_list(self):
+
+		ret=[]
+		try:
+			ret=self.client.ServerBackupManager.get_basic_services_list()
+			self._debug("get_basic_services_list",str(ret))
+			return ret
+		except Exception as e:
+			self._debug("get_basic_services_list","Error: "+str(e))
+			return ret 
+
+
 	def backup(self,path,services,folders):
 
+		errors=0
 		try:
 			ret=self.client.ServerBackupManager.backup(path,services,folders)
-			self.backup_ret=[True,ret]
 			
+			for item in ret[1]:
+				if not ret[1][item][0]:
+					errors+=1
+			
+			self.backup_ret=[True,ret[2],errors]
+			self._debug("Backup",ret)	
+		
 		except Exception as e:
 			self.backup_ret=[False,str(e)]
+			self._debug("Backup.Error: "+str(e))
 		
-		self._debug("Backup",self.backup_ret)	
 		#self.pulsating=False
 		
 		return False	
@@ -103,7 +122,12 @@ class BackupManager(object):
 	def restore (self,path):
 
 		try:
-			self.restore_ret=self.client.ServerBackupManager.restore(path)
+			restore_ret=self.client.ServerBackupManager.restore(path)
+			try:
+				if restore_ret[0] or not restore_ret[0]:
+					self.restore_ret=restore_ret
+			except:
+				self.restore_ret=[False,str(restore_ret)]
 			
 		except Exception as e:
 			self.restore_ret=[False,str(e)]

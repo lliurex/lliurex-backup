@@ -368,8 +368,8 @@ class BackupBox(Gtk.VBox):
 
 		if use_basics:
 			try:
-				server_basics=self.core.backupmanager.client.ServerBackupManager.get_basic_services_list()
-			except:
+				server_basics=self.core.backupmanager.get_basic_services_list()
+			except Exception as e:
 				server_basics=[]
 			for service in service_list:
 				if service not in server_basics:
