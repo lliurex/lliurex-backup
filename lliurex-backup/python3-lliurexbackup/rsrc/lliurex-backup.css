@@ -169,10 +169,10 @@
 	#CUSTOM-ENTRY
 	{
 		color: @default-grey;
-		border: none;
+		border:1px solid #aaaaaa;
 		/*border-radius: 5px;*/
 		background-color: transparent;
-		border-bottom: 1px solid #aaaaaa;
+		/*border-bottom: 1px solid #aaaaaa;*/
 		padding: 4px;
 		/*background: #eeeeee;*/
 		
@@ -183,7 +183,8 @@
 	#CUSTOM-ENTRY:focus
 	{
 		color: @arc-blue;
-		border-bottom: 1px solid @arc-blue-light;
+		border:1px solid @arc-blue-light;
+		/*border-bottom: 1px solid @arc-blue-light;*/
 		/*border-bottom: 2px solid rgba(0,0,0,0);*/
 		/*background-color: transparent;*/
 		
@@ -197,7 +198,8 @@
 	#CUSTOM-ENTRY:disabled
 	{
 		background-color: #bbbbbb;
-		border-bottom: 1px solid transparent;
+		border:1px solid transparent;
+		/*border-bottom: 1px solid transparent;*/
 		color: #999999;
 	}
 

@@ -167,6 +167,7 @@
             </child>
             <child>
               <object class="GtkEntry" id="server_ip_entry">
+                <property name="width_request">325</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="primary_icon_name">server</property>
