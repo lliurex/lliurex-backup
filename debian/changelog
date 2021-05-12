@@ -1,3 +1,10 @@
+lliurex-backup (0.44) focal; urgency=medium
+
+  * Fixed css file
+  * Disable debug mode
+
+ -- Juan Ramon Pelegrina <juapesai@hotmail.com>  Wed, 12 May 2021 09:45:58 +0200
+
 lliurex-backup (0.43) focal; urgency=medium
 
   * Fixed errors in new n4d integration
