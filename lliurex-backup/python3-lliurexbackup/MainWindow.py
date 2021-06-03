@@ -73,6 +73,10 @@ class MainWindow:
 		self.feedback_ok_img=builder.get_object("feedback_ok_img")
 		self.feedback_error_img=builder.get_object("feedback_error_img")
 		self.feedback_label=builder.get_object("feedback_label")
+		self.feedback_label.set_width_chars(50)
+		self.feedback_label.set_xalign(-1)
+		self.feedback_label.set_ellipsize(Pango.EllipsizeMode.MIDDLE)
+
 		self.feedback_progressbar=builder.get_object("feedback_progressbar")
 
 		self.help_button=builder.get_object("help_button")
