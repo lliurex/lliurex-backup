@@ -1,3 +1,10 @@
+lliurex-backup (0.44.2) focal; urgency=medium
+
+  * Fixed bug in debug call function
+  * Ellipsize msg error
+  
+ -- Juan Ramon Pelegrina <juapesai@hotmail.com>  Thu, 03 Jun 2021 10:52:47 +0200
+
 lliurex-backup (0.44.1) focal; urgency=medium
 
   * Fixed zero app file
