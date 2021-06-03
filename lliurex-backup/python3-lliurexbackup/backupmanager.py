@@ -111,7 +111,7 @@ class BackupManager(object):
 		
 		except Exception as e:
 			self.backup_ret=[False,str(e)]
-			self._debug("Backup.Error: "+str(e))
+			self._debug("Backup","Error:"+str(e))
 		
 		#self.pulsating=False
 		
