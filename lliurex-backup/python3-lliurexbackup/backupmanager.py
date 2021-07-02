@@ -102,11 +102,16 @@ class BackupManager(object):
 		try:
 			ret=self.client.ServerBackupManager.backup(path,services,folders)
 			
-			for item in ret[1]:
-				if not ret[1][item][0]:
-					errors+=1
+			if len(ret[1])>0:
+				for item in ret[1]:
+					if not ret[1][item][0]:
+						errors+=1
 			
-			self.backup_ret=[True,ret[2],errors]
+				self.backup_ret=[True,ret[2],errors]
+			else:
+				errors=1
+				self.backup_ret=[True,ret[2],errors]
+			
 			self._debug("Backup",ret)	
 		
 		except Exception as e:
