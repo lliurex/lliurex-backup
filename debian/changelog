@@ -1,3 +1,9 @@
+lliurex-backup (0.44.3) focal; urgency=medium
+
+  * Show error message when backup file is empty
+  
+ -- Juan Ramon Pelegrina <juapesai@hotmail.com>  Fri, 02 Jul 2021 15:37:52 +0200
+
 lliurex-backup (0.44.2) focal; urgency=medium
 
   * Fixed bug in debug call function
