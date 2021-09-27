@@ -1,3 +1,9 @@
+lliurex-backup (0.44.4) focal; urgency=medium
+
+  * Updated help link
+  
+ -- Juan Ramon Pelegrina <juapesai@hotmail.com>  Mon, 27 Sep 2021 08:22:46 +0200
+
 lliurex-backup (0.44.3) focal; urgency=medium
 
   * Show error message when backup file is empty
