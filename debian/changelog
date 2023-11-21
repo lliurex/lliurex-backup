@@ -1,0 +1,189 @@
+lliurex-backup (0.44.4) focal; urgency=medium
+
+  * Updated help link
+  
+ -- Juan Ramon Pelegrina <juapesai@hotmail.com>  Mon, 27 Sep 2021 08:22:46 +0200
+
+lliurex-backup (0.44.3) focal; urgency=medium
+
+  * Show error message when backup file is empty
+  
+ -- Juan Ramon Pelegrina <juapesai@hotmail.com>  Fri, 02 Jul 2021 15:37:52 +0200
+
+lliurex-backup (0.44.2) focal; urgency=medium
+
+  * Fixed bug in debug call function
+  * Ellipsize msg error
+  
+ -- Juan Ramon Pelegrina <juapesai@hotmail.com>  Thu, 03 Jun 2021 10:52:47 +0200
+
+lliurex-backup (0.44.1) focal; urgency=medium
+
+  * Fixed zero app file
+  
+ -- Juan Ramon Pelegrina <juapesai@hotmail.com>  Wed, 26 May 2021 16:45:12 +0200
+
+lliurex-backup (0.44) focal; urgency=medium
+
+  * Fixed css file
+  * Disable debug mode
+
+ -- Juan Ramon Pelegrina <juapesai@hotmail.com>  Wed, 12 May 2021 09:45:58 +0200
+
+lliurex-backup (0.43) focal; urgency=medium
+
+  * Fixed errors in new n4d integration
+  * Changed style of gui
+
+ -- Juan Ramon Pelegrina <juapesai@hotmail.com>  Tue, 11 May 2021 12:07:27 +0200
+
+lliurex-backup (0.42) focal; urgency=medium
+
+  * Removed n4d-proxy from depends
+  
+ -- Juan Ramon Pelegrina <juapesai@hotmail.com>  Mon, 19 Apr 2021 14:32:00 +0200
+
+lliurex-backup (0.41) focal; urgency=medium
+
+  * Initial release in focal
+  
+ -- Juan Ramon Pelegrina <juapesai@hotmail.com>  Wed, 24 Mar 2021 11:53:40 +0100
+
+lliurex-backup (0.31) bionic; urgency=medium
+
+  * Fixed po file
+  
+ -- Juan Ramon Pelegrina <juapesai@hotmail.com>  Tue, 20 Oct 2020 11:15:03 +0200
+
+lliurex-backup (0.30) bionic; urgency=medium
+
+  * Updated control file to change python dependency for python3
+  
+ -- Juan Ramon Pelegrina <juapesai@hotmail.com>  Thu, 30 Jan 2020 09:09:29 +0100
+
+lliurex-backup (0.29) bionic; urgency=medium
+
+  * Updated the link to the help
+  
+ -- Juan Ramon Pelegrina <juapesai@hotmail.com>  Thu, 05 Sep 2019 14:13:59 +0200
+
+lliurex-backup (0.28) bionic; urgency=medium
+
+  * Adding ca@valencia translation
+
+ -- Hector Garcia Huerta <hectorgh@gmail.com>  Fri, 26 Jul 2019 11:15:30 +0200
+
+lliurex-backup (0.27) bionic; urgency=medium
+
+  * Fixed login window
+
+ -- Juan Ramon Pelegrina <juapesai@hotmail.com>  Thu, 04 Jul 2019 10:54:12 +0200
+
+lliurex-backup (0.26) bionic; urgency=medium
+
+  * Disable debug mode
+
+ -- Juan Ramon Pelegrina <juapesai@hotmail.com>  Wed, 26 Jun 2019 11:34:29 +0200
+
+lliurex-backup (0.25) bionic; urgency=medium
+
+  * Fixed backup of basic services
+
+ -- Juan Ramon Pelegrina <juapesai@hotmail.com>  Wed, 26 Jun 2019 10:03:43 +0200
+
+lliurex-backup (0.24) bionic; urgency=medium
+
+  * Fixed valencian translations
+
+ -- Juan Ramon Pelegrina <juapesai@hotmail.com>  Mon, 17 Jun 2019 13:19:13 +0200
+
+lliurex-backup (0.23) bionic; urgency=medium
+
+  * Updated icon
+
+ -- Juan Ramon Pelegrina <juapesai@hotmail.com>  Thu, 13 Jun 2019 13:25:13 +0200
+
+lliurex-backup (0.22) bionic; urgency=medium
+
+  * Added translations
+
+ -- Juan Ramon Pelegrina <juapesai@hotmail.com>  Tue, 28 May 2019 08:07:01 +0200
+
+lliurex-backup (0.21) bionic; urgency=medium
+
+  * Restyling gui 
+
+ -- Juan Ramon Pelegrina <juapesai@hotmail.com>  Thu, 16 May 2019 12:28:20 +0200
+
+lliurex-backup (0.20) bionic; urgency=medium
+
+  * Initial release for bionic
+
+ -- Juan Ramon Pelegrina <juapesai@hotmail.com>  Mon, 15 Oct 2018 12:01:37 +0200
+
+lliurex-backup (0.9) xenial; urgency=medium
+
+  * Removed deprecated locale
+
+ -- Juanma Navarro Mañez <juanma1980@gmail.com>  Thu, 22 Jun 2017 09:22:05 +0200
+
+lliurex-backup (0.8) xenial; urgency=medium
+
+  * Added metainfo
+
+ -- Juanma Navarro Mañez <juanma1980@gmail.com>  Thu, 11 May 2017 12:43:36 +0200
+
+lliurex-backup (0.7+lliurex4) xenial; urgency=medium
+
+  * Add desktop file
+
+ -- Juan Ramon Pelegrina <juapesai@hotmail.com>  Wed, 08 Feb 2017 17:19:24 +0100
+
+lliurex-backup (0.7+lliurex3) xenial; urgency=medium
+
+  * Added NFS config backup
+
+ -- Juanma Navarro Mañez <juanma1980@gmail.com>  Mon, 25 Jul 2016 14:00:40 +0200
+
+lliurex-backup (0.7+lliurex2) xenial; urgency=medium
+
+  * Added dependencies for n4d-backup-manager
+
+ -- Juanma Navarro Mañez <juanma1980@gmail.com>  Thu, 21 Jul 2016 09:07:20 +0200
+
+lliurex-backup (0.7+lliurex1) xenial; urgency=medium
+
+  * Added Pmb and Moodle backup
+
+ -- Juanma Navarro Mañez <juanma1980@gmail.com>  Fri, 15 Jul 2016 09:50:19 +0200
+
+lliurex-backup (0.7) xenial; urgency=medium
+
+  * First release to xenial
+  * Fixed require version of Gtk (lliurex-backup)
+
+ -- Juan Ramon Pelegrina <juapesai@hotmail.com>  Mon, 15 Feb 2016 13:42:21 +0100
+
+lliurex-backup (0.4) trusty; urgency=high
+
+  * Added app translation
+
+ -- Angel Berlanas Vicente <angel.berlanas@gmail.com>  Mon, 25 May 2015 13:05:35 +0200
+
+lliurex-backup (0.3) trusty; urgency=medium
+
+  * Slightly changed GUI look to make it less confusing
+
+ -- Hector Garcia Huerta <hectorgh@gmail.com>  Wed, 15 Apr 2015 12:52:00 +0200
+
+lliurex-backup (0.2) trusty; urgency=medium
+
+  * First trusty release
+
+ -- Hector Garcia Huerta <hectorgh@gmail.com>  Wed, 15 Apr 2015 09:47:28 +0200
+
+lliurex-backup (0.1) precise; urgency=high
+
+  * Initial release. 
+
+ -- Hector Garcia Huerta <hectorgh@gmail.com>  Tue, 30 Sep 2014 13:52:08 +0200
